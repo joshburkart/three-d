@@ -111,9 +111,7 @@ impl InstancedMesh {
                 .collect::<Vec<_>>();
             let mut indices = (0..self.instance_count() as usize).collect::<Vec<usize>>();
             indices.sort_by(|a, b| {
-                distances[*b]
-                    .partial_cmp(&distances[*a])
-                    .unwrap_or(std::cmp::Ordering::Equal)
+                distances[*b].total_cmp(&distances[*a])
             });
             indices
         } else {
