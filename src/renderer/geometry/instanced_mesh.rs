@@ -113,7 +113,7 @@ impl InstancedMesh {
             indices.sort_by(|a, b| {
                 distances[*b]
                     .partial_cmp(&distances[*a])
-                    .or_else(|| panic!("d1: {:?} d2: {:?}", distances[*a], distances[*b]))
+                    .or_else(|| panic!("t1: {:?} t2: {:?}", self.instances.transformations[*a], self.instances.transformations[*b]))
                     .unwrap_or(std::cmp::Ordering::Equal)
             }); 
             indices
